@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     var characters = {
 
-        'goku': {
+        'Goku': {
             name: "Goku",
             hp: 100,
             ap: 10,
@@ -10,7 +10,7 @@ $(document).ready(function () {
             image: "assets/images/goku.png"
         },
 
-        'vegeta': {
+        'Vegeta': {
             name: "Vegeta",
             hp: 100,
             ap: 10,
@@ -18,7 +18,7 @@ $(document).ready(function () {
             image: "assets/images/vegeta.png"
         },
 
-        'cell': {
+        'Cell': {
             name: "Cell",
             hp: 100,
             ap: 10,
@@ -26,7 +26,7 @@ $(document).ready(function () {
             image: "assets/images/cell.png"
         },
 
-        'frieza': {
+        'Frieza': {
             name: "Frieza",
             hp: 100,
             ap: 10,
@@ -34,7 +34,7 @@ $(document).ready(function () {
             image: "assets/images/frieza.png"
         },
 
-        'buu': {
+        'Majin Buu': {
             name: "Majin Buu",
             hp: 100,
             ap: 10,
@@ -60,9 +60,29 @@ $(document).ready(function () {
 
     for (var key in characters) {
         if (characters.hasOwnProperty(key)) {
-          load(characters[key], "#character-select");
+            load(characters[key], "#character-select");
         }
     }
 
+    $(".character").on('click', function () {
 
+        var name = $(this).attr("id");
+
+        if (name !== chosenChar) {
+            for (var key in characters) {
+                if (key === name) {
+                    chosenChar=characters[key];
+                }
+                else {
+                    enemies.push(characters[key]);
+                }
+            }
+            $("#character-select").hide();
+            load(chosenChar, '#your-character');
+            
+            for (var i = 0; i <enemies.length; i++) {
+                load(enemies[i], '#enemies');
+            }
+        }
+    });
 });
