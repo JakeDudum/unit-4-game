@@ -56,6 +56,21 @@ $(document).ready(function () {
         var charHP = $("<p class='character-hp' /p>").text(char.hp);
         charDiv.append(charName).append(charImage).append(charHP);
         $(area).append(charDiv);
+
+        if (area === "#character-select") {
+            charDiv.addClass("select");
+        }
+        else {
+            charDiv.removeClass("select");
+        }
+        if (area === "#enemies") {
+            charDiv.addClass("enemy");
+            charDiv.removeClass("select");
+        }
+        if (area === "#defender") {
+            charDiv.addClass("defender");
+            charDiv.removeClass("select");
+        }
     }
 
     for (var key in characters) {
@@ -64,14 +79,14 @@ $(document).ready(function () {
         }
     }
 
-    $(".character").on('click', function () {
+    $(document).on('click', '.select', function () {
 
         var name = $(this).attr("id");
 
         if (name !== chosenChar) {
             for (var key in characters) {
                 if (key === name) {
-                    chosenChar=characters[key];
+                    chosenChar = characters[key];
                 }
                 else {
                     enemies.push(characters[key]);
@@ -79,10 +94,25 @@ $(document).ready(function () {
             }
             $("#character-select").empty();
             load(chosenChar, '#your-character');
-            
-            for (var i = 0; i <enemies.length; i++) {
+
+            for (var i = 0; i < enemies.length; i++) {
                 load(enemies[i], '#enemies');
             }
+        }
+    });
+
+    $(document).on('click', '.enemy', function () {
+
+        var name = $(this).attr("id");
+
+        if ($('#defender').children().length === 0) {
+            for (var i = 0; i < enemies.length; i++) {
+                if (enemies[i].name === name) {
+                    chosenEnemy = enemies[i];
+                }
+            }
+            load(chosenEnemy, "#defender");
+            $(this).remove();
         }
     });
 });
