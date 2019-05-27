@@ -1,38 +1,47 @@
 $(document).ready(function () {
 
-var goku = {
-    name: "Goku",
-    hp: 100,
-    ap: 10,
-    cap: 10
-};
 
-var vegeta = {
-    name: "Vegeta",
-    hp: 100,
-    ap: 10,
-    cap: 10
-};
+    var characters = {
 
-var cell = {
-    name: "Cell",
-    hp: 100,
-    ap: 10,
-    cap: 10
-};
+        'goku': {
+            name: "Goku",
+            hp: 100,
+            ap: 10,
+            cap: 10,
+            image: "assets/images/goku.png"
+        },
 
-var frieza = {
-    name: "Frieza",
-    hp: 100,
-    ap: 10,
-    cap: 10
-};
+        'vegeta': {
+            name: "Vegeta",
+            hp: 100,
+            ap: 10,
+            cap: 10,
+            image: "assets/images/vegeta.png"
+        },
 
-var buu = {
-    name: "Majin Buu",
-    hp: 100,
-    ap: 10,
-    cap: 10
-};
+        'cell': {
+            name: "Cell",
+            hp: 100,
+            ap: 10,
+            cap: 10,
+            image: "assets/images/cell.png"
+        },
+
+        'frieza': {
+            name: "Frieza",
+            hp: 100,
+            ap: 10,
+            cap: 10,
+            image: "assets/images/frieza.png"
+        },
+
+        'buu': {
+            name: "Majin Buu",
+            hp: 100,
+            ap: 10,
+            cap: 10,
+            image: "assets/images/majin_buu.png"
+        }
+    };
 
 });
