@@ -16,6 +16,10 @@ header {
     -webkit-background-clip: text;
 }
 
+h1 {
+    font-size: 22px;
+}
+
 .clearfix {
     clear: both;
 }
