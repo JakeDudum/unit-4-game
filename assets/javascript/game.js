@@ -7,8 +7,8 @@ var goku = {
     cap: 10
 };
 
-var gohan = {
-    name: "Gohan",
+var vegeta = {
+    name: "Vegeta",
     hp: 100,
     ap: 10,
     cap: 10
