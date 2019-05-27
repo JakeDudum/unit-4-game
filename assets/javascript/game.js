@@ -46,7 +46,7 @@ $(document).ready(function () {
     var chosenChar;
     var chosenEnemy;
     var enemies = [];
-    var victories;
+    var victories = 0;
     var turn = 1;
 
     function load(char, area) {
@@ -65,11 +65,9 @@ $(document).ready(function () {
         }
         if (area === "#enemies") {
             charDiv.addClass("enemy");
-            charDiv.removeClass("select");
         }
         if (area === "#defender") {
             charDiv.addClass("defender");
-            charDiv.removeClass("select");
         }
     }
 
@@ -113,6 +111,52 @@ $(document).ready(function () {
             }
             load(chosenEnemy, "#defender");
             $(this).remove();
+        }
+    });
+
+    $(document).on('click', '#attack', function () {
+
+        if ($('#defender').children().length !== 0) {
+
+            $(".message").text("You attacked " + chosenEnemy.name + " for " + (chosenChar.ap * turn) + " damage.");
+            $(".message").append("<br>")
+            chosenEnemy.hp = (chosenEnemy.hp - (chosenChar.ap * turn));
+
+            $("#defender").empty();
+            load(chosenEnemy, "#defender");
+
+            if (chosenEnemy.hp > 0) {
+
+                $(".message").append(chosenEnemy.name + " attacked you back for " + chosenEnemy.cap + " damage.");
+
+                chosenChar.hp = (chosenChar.hp - chosenEnemy.cap);
+
+                $("#your-character").empty();
+                load(chosenChar, "#your-character");
+
+                if (chosenChar.hp <= 0) {
+                    $("#attack").remove();
+                    $(".message").text("You Lose! Try Again!!!");
+                    $(".message").append($('<br> <button>Restart</button>').click(function () {
+                        location.reload();
+                    }));
+                }
+            } else {
+                $("#defender").empty();
+                $(".message").append("You Defeated " + chosenEnemy.name + ". Select a new Enemy.");
+                victories++;
+                if (victories === 4) {
+                    $("#attack").remove();
+                    $(".message").text("You Win! GAME OVER!!!");
+                    $(".message").append($('<br> <button>Restart</button>').click(function () {
+                        location.reload();
+                    }));
+                }
+            }
+            turn++;
+        }
+        else {
+            $(".message").text("No Enemies Here");
         }
     });
 });
