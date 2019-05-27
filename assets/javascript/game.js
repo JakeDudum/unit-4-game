@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     var characters = {
 
         'goku': {
@@ -44,6 +43,12 @@ $(document).ready(function () {
         }
     };
 
+    var chosenChar;
+    var chosenEnemy;
+    var enemies = [];
+    var victories;
+    var turn = 1;
+
     function load(char, area) {
         var charDiv = $("<div class='character' id='" + char.name + "'/div>");
         var charName = $("<p class='character-name' /p>").text(char.name);
@@ -58,4 +63,6 @@ $(document).ready(function () {
           load(characters[key], "#character-select");
         }
     }
+
+
 });
