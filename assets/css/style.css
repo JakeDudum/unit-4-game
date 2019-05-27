@@ -35,11 +35,13 @@ h1 {
 }
 
 .character {
+    text-align: center;
     position: relative;
     width: 200px;
     height: 250px;
     margin-right: 25px;
     float: left;
+    margin-bottom: 40px;
 }
 
 img {
@@ -47,6 +49,6 @@ img {
     height: 100%;
 }
 
-#vegeta {
+#Vegeta {
     width: 150px;
 }

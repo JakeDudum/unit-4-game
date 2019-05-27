@@ -44,4 +44,18 @@ $(document).ready(function () {
         }
     };
 
+    function load(char, area) {
+        var charDiv = $("<div class='character' id='" + char.name + "'/div>");
+        var charName = $("<p class='character-name' /p>").text(char.name);
+        var charImage = $("<img class='character-image'>").attr("src", char.image);
+        var charHP = $("<p class='character-hp' /p>").text(char.hp);
+        charDiv.append(charName).append(charImage).append(charHP);
+        $(area).append(charDiv);
+    }
+
+    for (var key in characters) {
+        if (characters.hasOwnProperty(key)) {
+          load(characters[key], "#character-select");
+        }
+    }
 });
