@@ -77,7 +77,7 @@ $(document).ready(function () {
                     enemies.push(characters[key]);
                 }
             }
-            $("#character-select").hide();
+            $("#character-select").empty();
             load(chosenChar, '#your-character');
             
             for (var i = 0; i <enemies.length; i++) {
