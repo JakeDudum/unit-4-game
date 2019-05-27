@@ -4,6 +4,18 @@ body {
     background-image: url("../images/background.jpg");
 }
 
+header {
+    text-align: center;
+}
+
+#header {
+    font-size: 70px;
+    background-image: linear-gradient(red, orange);
+    color:transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
 .clearfix {
     clear: both;
 }
