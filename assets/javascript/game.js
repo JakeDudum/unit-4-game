@@ -54,7 +54,7 @@ $(document).ready(function () {
         str = char.name.replace(/\s+/g, '');
         var charDiv = $("<div class='character' id='" + char.name + "'/div>");
         var charName = $("<p class='character-name' /p>").text(char.name);
-        var charImage = $("<img id='" + str.toLowerCase() + victories + "'>").attr("src", char.image + victories + ".png");
+        var charImage = $("<img class='character-image' id='" + str.toLowerCase() + victories + "'>").attr("src", char.image + victories + ".png");
         var charHP = $("<p class='character-hp' /p>").text(char.hp);
         charDiv.append(charName).append(charImage).append(charHP);
         $(area).append(charDiv);
@@ -152,20 +152,22 @@ $(document).ready(function () {
             } else {
                 $("#defender").empty();
                 $(".message").empty();
-                $(".message").append("You Defeated " + chosenEnemy.name + ". Select a new Enemy.");
                 victories++;
-                $("#your-character").empty();
-                load(chosenChar, "#your-character");
-                $("#enemies").empty();
-                for (var i = 0; i < enemies.length; i++) {
-                    load(enemies[i], '#enemies');
-                }
                 if (victories === 4) {
                     $("#attack").remove();
                     $(".message").text("You Win! GAME OVER!!!");
                     $(".message").append($('<br> <button>Restart</button>').click(function () {
                         location.reload();
                     }));
+                }
+                else {
+                    $(".message").append("You Defeated " + chosenEnemy.name + ". Select a new Enemy.");
+                    $("#your-character").empty();
+                    load(chosenChar, "#your-character");
+                    $("#enemies").empty();
+                    for (var i = 0; i < enemies.length; i++) {
+                        load(enemies[i], '#enemies');
+                    }
                 }
             }
             turn++;
