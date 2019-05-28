@@ -7,7 +7,7 @@ $(document).ready(function () {
             hp: 100,
             ap: 10,
             cap: 10,
-            image: "assets/images/goku.png"
+            image: "assets/images/goku"
         },
 
         'Vegeta': {
@@ -15,7 +15,7 @@ $(document).ready(function () {
             hp: 100,
             ap: 10,
             cap: 10,
-            image: "assets/images/vegeta.png"
+            image: "assets/images/vegeta"
         },
 
         'Cell': {
@@ -23,7 +23,7 @@ $(document).ready(function () {
             hp: 100,
             ap: 10,
             cap: 10,
-            image: "assets/images/cell.png"
+            image: "assets/images/cell"
         },
 
         'Frieza': {
@@ -31,7 +31,7 @@ $(document).ready(function () {
             hp: 100,
             ap: 10,
             cap: 10,
-            image: "assets/images/frieza.png"
+            image: "assets/images/frieza"
         },
 
         'Majin Buu': {
@@ -39,20 +39,22 @@ $(document).ready(function () {
             hp: 100,
             ap: 10,
             cap: 10,
-            image: "assets/images/majin_buu.png"
+            image: "assets/images/majin_buu"
         }
     };
 
     var chosenChar;
     var chosenEnemy;
+    var chosenEnemyIndex = 0;
     var enemies = [];
     var victories = 0;
     var turn = 1;
 
     function load(char, area) {
+        str = char.name.replace(/\s+/g, '');
         var charDiv = $("<div class='character' id='" + char.name + "'/div>");
         var charName = $("<p class='character-name' /p>").text(char.name);
-        var charImage = $("<img class='character-image'>").attr("src", char.image);
+        var charImage = $("<img id='" + str.toLowerCase() + victories + "'>").attr("src", char.image + victories + ".png");
         var charHP = $("<p class='character-hp' /p>").text(char.hp);
         charDiv.append(charName).append(charImage).append(charHP);
         $(area).append(charDiv);
@@ -107,10 +109,15 @@ $(document).ready(function () {
             for (var i = 0; i < enemies.length; i++) {
                 if (enemies[i].name === name) {
                     chosenEnemy = enemies[i];
+                    chosenEnemyIndex = i;
                 }
             }
+            enemies.splice(chosenEnemyIndex, 1);
             load(chosenEnemy, "#defender");
-            $(this).remove();
+            $("#enemies").empty();
+            for (var i = 0; i < enemies.length; i++) {
+                load(enemies[i], '#enemies');
+            }
         }
     });
 
@@ -136,6 +143,7 @@ $(document).ready(function () {
 
                 if (chosenChar.hp <= 0) {
                     $("#attack").remove();
+                    $(".message").empty();
                     $(".message").text("You Lose! Try Again!!!");
                     $(".message").append($('<br> <button>Restart</button>').click(function () {
                         location.reload();
@@ -143,8 +151,15 @@ $(document).ready(function () {
                 }
             } else {
                 $("#defender").empty();
+                $(".message").empty();
                 $(".message").append("You Defeated " + chosenEnemy.name + ". Select a new Enemy.");
                 victories++;
+                $("#your-character").empty();
+                load(chosenChar, "#your-character");
+                $("#enemies").empty();
+                for (var i = 0; i < enemies.length; i++) {
+                    load(enemies[i], '#enemies');
+                }
                 if (victories === 4) {
                     $("#attack").remove();
                     $(".message").text("You Win! GAME OVER!!!");

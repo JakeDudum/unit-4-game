@@ -38,7 +38,7 @@ h1 {
     text-align: center;
     position: relative;
     width: 200px;
-    height: 250px;
+    height: 275px;
     margin-right: 25px;
     float: left;
     margin-bottom: 40px;
@@ -50,6 +50,14 @@ img {
     height: 100%;
 }
 
-#Vegeta {
+#vegeta0 {
     width: 150px;
+}
+
+#majinbuu1 {
+    width: 150px;
+}
+
+#cell3, #cell4 {
+    width: 150px
 }
