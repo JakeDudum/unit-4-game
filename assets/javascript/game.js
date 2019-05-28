@@ -4,41 +4,41 @@ $(document).ready(function () {
 
         'Goku': {
             name: "Goku",
-            hp: 100,
-            ap: 10,
-            cap: 10,
+            hp: 140,
+            ap: 13,
+            cap: 15,
             image: "assets/images/goku"
         },
 
         'Vegeta': {
             name: "Vegeta",
-            hp: 100,
-            ap: 10,
-            cap: 10,
+            hp: 145,
+            ap: 11,
+            cap: 18,
             image: "assets/images/vegeta"
         },
 
         'Cell': {
             name: "Cell",
-            hp: 100,
-            ap: 10,
-            cap: 10,
+            hp: 160,
+            ap: 9,
+            cap: 20,
             image: "assets/images/cell"
         },
 
         'Frieza': {
             name: "Frieza",
-            hp: 100,
-            ap: 10,
-            cap: 10,
+            hp: 115,
+            ap: 18,
+            cap: 25,
             image: "assets/images/frieza"
         },
 
         'Majin Buu': {
             name: "Majin Buu",
-            hp: 100,
-            ap: 10,
-            cap: 10,
+            hp: 150,
+            ap: 12,
+            cap: 30,
             image: "assets/images/majin_buu"
         }
     };
