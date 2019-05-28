@@ -14,6 +14,7 @@ header {
 }
 
 #header {
+    font-family: saiyan;
     font-size: 70px;
     background-image: linear-gradient(red, orange);
     color:transparent;
@@ -48,13 +49,44 @@ h1 {
     clear: both;
 }
 
-.character {
+.select {
     text-align: center;
     position: relative;
     width: 200px;
     height: 275px;
     margin-right: 25px;
     float: left;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.user-character {
+    text-align: center;
+    position: relative;
+    width: 300px;
+    height: 375px;
+    margin-right: 25px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.enemy {
+    text-align: center;
+    position: relative;
+    width: 150px;
+    height: 225px;
+    margin-right: 25px;
+    float: left;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.defender {
+    text-align: center;
+    position: relative;
+    width: 300px;
+    height: 375px;
+    margin-right: 25px;
     margin-bottom: 40px;
     cursor: pointer;
 }

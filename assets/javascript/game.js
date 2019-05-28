@@ -71,6 +71,9 @@ $(document).ready(function () {
         if (area === "#defender") {
             charDiv.addClass("defender");
         }
+        if (area === "#your-character") {
+            charDiv.addClass("user-character");
+        }
     }
 
     for (var key in characters) {
