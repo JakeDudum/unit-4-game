@@ -137,10 +137,9 @@ $(document).ready(function () {
         $(".message").append("<br>")
         chosenEnemy.hp = (chosenEnemy.hp - (chosenChar.ap * turn));
 
-        $("#defender").empty();
-        load(chosenEnemy, "#defender");
-
         if (chosenEnemy.hp > 0) {
+            $("#defender").empty();
+            load(chosenEnemy, "#defender");
 
             $(".message").append(chosenEnemy.name + " attacked you back for " + chosenEnemy.cap + " damage.");
 

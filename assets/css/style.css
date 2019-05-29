@@ -8,6 +8,7 @@ html {
 }
 
 body {
+    font-family: saiyan;
     height: 100%;
     width: 100%;
     margin: 0 auto;
@@ -15,13 +16,44 @@ body {
     background-size: 100% 100%;
 }
 
+#left, #right {
+    position: absolute;
+    top: -20px;
+    width: 680px;
+    height: 120px;
+}
+
+#left {
+    left: 0;
+}
+
+#right {
+    right: 0;
+    top: -27px;
+}
+
 header {
     text-align: center;
 }
 
 h1 {
+    font-size: 22px;
     font-weight: bold;
-    color: whitesmoke;
+    color: orange;
+    letter-spacing: 1px;
+}
+
+button {
+    font-family: saiyan;
+    width: 100px;
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: red;
+    color: white;
 }
 
 #header {
@@ -50,10 +82,6 @@ h1 {
     color:transparent;
     background-clip: text;
     -webkit-background-clip: text;
-}
-
-h1 {
-    font-size: 22px;
 }
 
 .clearfix {
@@ -115,7 +143,7 @@ h1 {
 #fight-area {
     position: absolute;
     top: 200px;
-    left: 740px;
+    left: 700px;
 }
 
 #attack {
@@ -127,7 +155,7 @@ h1 {
     font-size: 27px;
     position: absolute;
     color: white;
-    top: 220px;
+    top: 250px;
     left: 575px;
     z-index: 1;
 }
