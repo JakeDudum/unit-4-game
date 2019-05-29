@@ -171,7 +171,8 @@ $(document).ready(function () {
                 }));
             }
             else {
-                $(".message").append("You Defeated " + chosenEnemy.name + ". Select a new Enemy.");
+                $(".message").append("You Defeated " + chosenEnemy.name + ".");
+                $(".message").append('<br>', "Select a new Enemy.");
                 $("#your-character").empty();
                 load(chosenChar, "#your-character");
                 $("#enemies").empty();

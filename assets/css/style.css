@@ -103,12 +103,26 @@ h1 {
 
 #fight-area {
     position: absolute;
-    top: 240px;
+    top: 200px;
     left: 740px;
 }
 
 #attack {
     visibility: hidden;
+}
+
+.message {
+    font-family: saiyan;
+    font-size: 25px;
+    position: absolute;
+    color: white;
+    top: 220px;
+    left: 575px;
+}
+
+.character-hp {
+    color: red;
+    font-weight: bold;
 }
 
 .character-image {
