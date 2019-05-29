@@ -91,6 +91,22 @@ h1 {
     cursor: pointer;
 }
 
+#your-character {
+    margin-left: 300px;
+}
+
+#defender {
+    position: absolute;
+    top: 70px;
+    right: 300px;
+}
+
+#fight-area {
+    position: absolute;
+    top: 240px;
+    left: 740px;
+}
+
 .character-image {
     width: 100%;
     height: 100%;

@@ -70,9 +70,15 @@ $(document).ready(function () {
         }
         if (area === "#defender") {
             charDiv.addClass("defender");
+            var title = $("<h1>");
+            title.text("Defender");
+            $(area).prepend(title);
         }
         if (area === "#your-character") {
             charDiv.addClass("user-character");
+            var title = $("<h1>");
+            title.text("Your Character");
+            $(area).prepend(title);
         }
     }
 
