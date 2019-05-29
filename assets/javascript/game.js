@@ -164,10 +164,16 @@ $(document).ready(function () {
             victories++;
             if (victories === 4) {
                 $("#attack").remove();
+                $("#your-character").remove();
+                $("#enemies").remove();
+                $("#enemy-header").remove();
                 $(".message").text("You Win! GAME OVER!!!");
                 $(".message").append($('<br> <button>Restart</button>').click(function () {
                     location.reload();
                 }));
+                var newDiv = $("<img>").attr('src', "assets/images/wins.png");
+                newDiv.addClass("winner");
+                $("#main").append(newDiv);
             }
             else {
                 $(".message").append("You Defeated " + chosenEnemy.name + ".");

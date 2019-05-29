@@ -3,14 +3,25 @@
     src: url(../fonts/Saiyan-Sans.ttf);
 }
 
+html {
+    height: 100%;
+}
+
 body {
     height: 100%;
     width: 100%;
+    margin: 0 auto;
     background-image: url("../images/background.jpg");
+    background-size: 100% 100%;
 }
 
 header {
     text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    color: whitesmoke;
 }
 
 #header {
@@ -113,11 +124,21 @@ h1 {
 
 .message {
     font-family: saiyan;
-    font-size: 25px;
+    font-size: 27px;
     position: absolute;
     color: white;
     top: 220px;
     left: 575px;
+    z-index: 1;
+}
+
+.winner {
+    position: absolute;
+    top: 40px;
+    left: 300px;
+    z-index: 0;
+    width: 850px;
+    height: 680px;
 }
 
 .character-hp {
