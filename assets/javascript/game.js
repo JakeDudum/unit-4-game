@@ -36,7 +36,7 @@ $(document).ready(function () {
 
         'Majin Buu': {
             name: "Majin Buu",
-            hp: 150,
+            hp: 135,
             ap: 12,
             cap: 30,
             image: "assets/images/majin_buu"
@@ -132,7 +132,6 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '#attack', function () {
-
 
         $(".message").text("You attacked " + chosenEnemy.name + " for " + (chosenChar.ap * turn) + " damage.");
         $(".message").append("<br>")
