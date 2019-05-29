@@ -123,6 +123,7 @@ $(document).ready(function () {
             }
             enemies.splice(chosenEnemyIndex, 1);
             load(chosenEnemy, "#defender");
+            $("#attack").css("visibility", "visible");
             $("#enemies").empty();
             for (var i = 0; i < enemies.length; i++) {
                 load(enemies[i], '#enemies');
@@ -132,57 +133,53 @@ $(document).ready(function () {
 
     $(document).on('click', '#attack', function () {
 
-        if ($('#defender').children().length !== 0) {
 
-            $(".message").text("You attacked " + chosenEnemy.name + " for " + (chosenChar.ap * turn) + " damage.");
-            $(".message").append("<br>")
-            chosenEnemy.hp = (chosenEnemy.hp - (chosenChar.ap * turn));
+        $(".message").text("You attacked " + chosenEnemy.name + " for " + (chosenChar.ap * turn) + " damage.");
+        $(".message").append("<br>")
+        chosenEnemy.hp = (chosenEnemy.hp - (chosenChar.ap * turn));
 
+        $("#defender").empty();
+        load(chosenEnemy, "#defender");
+
+        if (chosenEnemy.hp > 0) {
+
+            $(".message").append(chosenEnemy.name + " attacked you back for " + chosenEnemy.cap + " damage.");
+
+            chosenChar.hp = (chosenChar.hp - chosenEnemy.cap);
+
+            $("#your-character").empty();
+            load(chosenChar, "#your-character");
+
+            if (chosenChar.hp <= 0) {
+                $("#attack").remove();
+                $(".message").empty();
+                $(".message").text("You Lose! Try Again!!!");
+                $(".message").append($('<br> <button>Restart</button>').click(function () {
+                    location.reload();
+                }));
+            }
+        } else {
+            $("#attack").css("visibility", "hidden");
             $("#defender").empty();
-            load(chosenEnemy, "#defender");
-
-            if (chosenEnemy.hp > 0) {
-
-                $(".message").append(chosenEnemy.name + " attacked you back for " + chosenEnemy.cap + " damage.");
-
-                chosenChar.hp = (chosenChar.hp - chosenEnemy.cap);
-
+            $(".message").empty();
+            victories++;
+            if (victories === 4) {
+                $("#attack").remove();
+                $(".message").text("You Win! GAME OVER!!!");
+                $(".message").append($('<br> <button>Restart</button>').click(function () {
+                    location.reload();
+                }));
+            }
+            else {
+                $(".message").append("You Defeated " + chosenEnemy.name + ". Select a new Enemy.");
                 $("#your-character").empty();
                 load(chosenChar, "#your-character");
-
-                if (chosenChar.hp <= 0) {
-                    $("#attack").remove();
-                    $(".message").empty();
-                    $(".message").text("You Lose! Try Again!!!");
-                    $(".message").append($('<br> <button>Restart</button>').click(function () {
-                        location.reload();
-                    }));
-                }
-            } else {
-                $("#defender").empty();
-                $(".message").empty();
-                victories++;
-                if (victories === 4) {
-                    $("#attack").remove();
-                    $(".message").text("You Win! GAME OVER!!!");
-                    $(".message").append($('<br> <button>Restart</button>').click(function () {
-                        location.reload();
-                    }));
-                }
-                else {
-                    $(".message").append("You Defeated " + chosenEnemy.name + ". Select a new Enemy.");
-                    $("#your-character").empty();
-                    load(chosenChar, "#your-character");
-                    $("#enemies").empty();
-                    for (var i = 0; i < enemies.length; i++) {
-                        load(enemies[i], '#enemies');
-                    }
+                $("#enemies").empty();
+                for (var i = 0; i < enemies.length; i++) {
+                    load(enemies[i], '#enemies');
                 }
             }
-            turn++;
         }
-        else {
-            $(".message").text("No Enemies Here");
-        }
+        turn++;
     });
 });
