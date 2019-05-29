@@ -19,8 +19,8 @@ body {
 #left, #right {
     position: absolute;
     top: 0;
-    width: 45vw;
-    height: 18vh;
+    width: 44vw;
+    height: 17vh;
 }
 
 #left {
