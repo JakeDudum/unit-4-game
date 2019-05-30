@@ -7,7 +7,8 @@ $(document).ready(function () {
             hp: 140,
             ap: 13,
             cap: 15,
-            image: "assets/images/goku"
+            image: "assets/images/goku",
+            sound: "assets/sounds/gokuAttack.mp3"
         },
 
         'Vegeta': {
@@ -15,7 +16,8 @@ $(document).ready(function () {
             hp: 145,
             ap: 11,
             cap: 18,
-            image: "assets/images/vegeta"
+            image: "assets/images/vegeta",
+            sound: "assets/sounds/vegetaAttack.mp3"
         },
 
         'Cell': {
@@ -23,7 +25,8 @@ $(document).ready(function () {
             hp: 160,
             ap: 9,
             cap: 20,
-            image: "assets/images/cell"
+            image: "assets/images/cell",
+            sound: "assets/sounds/cellAttack.mp3"
         },
 
         'Frieza': {
@@ -31,7 +34,8 @@ $(document).ready(function () {
             hp: 115,
             ap: 18,
             cap: 25,
-            image: "assets/images/frieza"
+            image: "assets/images/frieza",
+            sound: "assets/sounds/friezaAttack.mp3"
         },
 
         'Majin Buu': {
@@ -39,7 +43,8 @@ $(document).ready(function () {
             hp: 135,
             ap: 12,
             cap: 30,
-            image: "assets/images/majin_buu"
+            image: "assets/images/majin_buu",
+            sound: "assets/sounds/majin_buuAttack.mp3"
         }
     };
 
@@ -133,6 +138,9 @@ $(document).ready(function () {
 
     $(document).on('click', '#attack', function () {
 
+        $("#hitSound").attr("src", chosenChar.sound);
+        $("#hitSound").prop("volume", 0.05);
+        $("#hitSound")[0].play();
         $(".message").text("You attacked " + chosenEnemy.name + " for " + (chosenChar.ap * turn) + " damage.");
         $(".message").append("<br>")
         chosenEnemy.hp = (chosenEnemy.hp - (chosenChar.ap * turn));
